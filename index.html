@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Туристическая компания</title>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать в нашу туристическую компанию</h1>
+        <p>Путешествуйте с нами и открывайте новые горизонты!</p>
+    </header>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="tours.html">Туры и экскурсии</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+    <main style="margin-bottom:50px;">
+        <section class="intro">
+            <p>Мы предлагаем разнообразные туры и экскурсии по красивым местам. Планируйте свои путешествия легко и удобно.</p>
+        </section>
+        <section class="services">
+            <div class="service">
+                <h3>Обзорные экскурсии</h3>
+                <p>Познакомьтесь с городом или природой во время увлекательных экскурсий.</p>
+                <a href="booking.html" class="button">Забронировать</a>
+            </div>
+            <div class="service">
+                <h3>Экскурсии в горы</h3>
+                <p>Покорите вершины и насладитесь великолепными видами.</p>
+                <a href="booking.html" class="button">Забронировать</a>
+            </div>
+            <div class="service">
+                <h3>Пляжный отдых</h3>
+                <p>Расслабьтесь на красивых пляжах и насладитесь солнцем.</p>
+                <a href="booking.html" class="button">Забронировать</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section id="contacts">
+            <h1 style="text-align:left;">Контакты</h1>
+            <p style="text-align:left;">Телефон: +7 (123) 456-78-90</p>
+            <p style="text-align:left;">Email: info@tourcompany.ru</p>
+            <p style="text-align:left;">Адрес: г. Москва, ул. Пушкина, д. 10</p>
+        </section>
+        &copy; 2025 Туристическая компания. Все права защищены.
+    </footer>
+    <script>
+        const services = document.querySelectorAll('.service');
+        services.forEach(service => {
+            service.addEventListener('mouseenter', () => {
+                service.style.opacity = '0.8';
+            });
+            service.addEventListener('mouseleave', () => {
+                service.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>

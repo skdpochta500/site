@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="style_2.css">
+    <title>Бронирование туров и экскурсий</title>
+</head>
+<body>
+    <header>
+        <h1>Забронируйте тур или экскурсию</h1>
+        <p>Планируйте свои путешествия с нами и открывайте новые места!</p>
+    </header>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="tours.html">Туры и экскурсии</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+    <main style="margin-bottom:100px;">
+        <h2>Форма бронирования</h2>
+        <form id="bookingForm">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Электронная почта</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="date">Дата</label>
+            <input type="date" id="date" name="date" required />
+
+            <label for="participants">Количество участников</label>
+            <input type="number" id="participants" name="participants" min="1" max="10" required />
+
+            <button type="submit">Забронировать</button>
+        </form>
+        <p id="confirmationMessage">Ваша бронь успешно оформлена! Спасибо!</p>
+    </main>
+
+    <footer>
+        <section id="contacts">
+            <h1 style="text-align:left;">Контакты</h1>
+            <p style="text-align:left;">Телефон: +7 (123) 456-78-90</p>
+            <p style="text-align:left;">Email: info@tourcompany.ru</p>
+            <p style="text-align:left;">Адрес: г. Москва, ул. Пушкина, д. 10</p>
+        </section>
+        &copy; 2025 Туристическая компания. Все права защищены.
+    </footer>
+    <script>
+        const form = document.getElementById('bookingForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const date = document.getElementById('date').value;
+            const participants = document.getElementById('participants').value;
+
+            if (!name || !email || !date || !participants) {
+                alert('Пожалуйста, заполните все поля!');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Введите корректный email!');
+                return;
+            }
+
+            const today = new Date().toISOString().split('T')[0];
+            if (date < today) {
+                alert('Выберите дату в будущем!');
+                return;
+            }
+
+            confirmationMessage.style.display = 'block';
+            form.reset();
+        });
+    </script>
+</body>
+</html>

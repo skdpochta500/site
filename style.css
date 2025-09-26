@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #e0f7fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header {
+    background-color: #006064;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+nav {
+    background-color: #004d4d;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    text-align: center;
+    transition: background 0.3s;
+}
+nav a:hover {
+    background-color: #00796b;
+}
+main {
+    flex: 1;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+h1 {
+    font-size: larger;
+    margin-top: 0;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+.intro {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+.service {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 10px;
+    transition: transform 0.3s;
+}
+.service:hover {
+    transform: translateY(-5px);
+}
+.tour-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.tour {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.tour h2 {
+    margin-top: 0;
+    color: #00796b;
+}
+.tour p {
+    margin: 10px 0;
+}
+.book-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.book-button:hover {
+    background-color: #009688;
+}
+footer {
+    background-color: #006064;
+    color: #eceff1;
+    text-align: center;
+    padding: 15px;
+}
+a.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+a.button:hover {
+    background-color: #009688;
+}
+#confirmationMessage {
+    margin-top:20px;
+    color: green;
+    display:none;
+}
+.contact-info {
+    margin-top: 20px;
+    font-size: 0.95em;
+}
+.contact-info p {
+    margin: 5px 0;
+}

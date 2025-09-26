@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Наши туры и экскурсии</title>
+</head>
+<body>
+    <header>
+        <h1>Наши туры и экскурсии</h1>
+    </header>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="tours.html">Туры и экскурсии</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+    <main>
+        <input type="text" id="searchInput" placeholder="Поиск по турам..." style="min-width: 97%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 1em;">
+        <section class="tour-list" id="tourList">
+        </section>
+    </main>
+    <footer>
+        <section id="contacts">
+            <h1 style="text-align:left; margin-bottom:0px;">Контакты</h1>
+            <p style="text-align:left;">Телефон: +7 (123) 456-78-90</p>
+            <p style="text-align:left;">Email: info@tourcompany.ru</p>
+            <p style="text-align:left;">Адрес: г. Москва, ул. Пушкина, д. 10</p>
+        </section>
+        &copy; 2025 Туристическая компания. Все права защищены.
+    </footer>
+    <script>
+        const toursData = [
+            {
+                title: "Обзорная экскурсия по городу",
+                description: "Познакомьтесь с достопримечательностями столицы во время увлекательной обзорной экскурсии. Продолжительность: 4 часа.",
+                price: "Стоимость: 1500 руб."
+            },
+            {
+                title: "Экскурсия в горы \"Пик Победы\"",
+                description: "Покорите вершины и насладитесь великолепными видами на природу. Продолжительность: 8 часов.",
+                price: "Стоимость: 3000 руб."
+            },
+            {
+                title: "Пляжный отдых на Черном море",
+                description: "Отдыхайте на лучших пляжах, наслаждайтесь солнцем и морем. Продолжительность: 7 дней.",
+                price: "Стоимость: от 20 000 руб."
+            },
+            {
+                title: "Экскурсия в исторический музей",
+                description: "Погрузитесь в историю и культуру региона. Продолжительность: 3 часа.",
+                price: "Стоимость: 800 руб."
+            }
+        ];
+        const tourList = document.getElementById('tourList');
+        const tours = [];
+        function createTour(tourData) {
+            const tourDiv = document.createElement('div');
+            tourDiv.className = 'tour';
+
+            const title = document.createElement('h2');
+            title.textContent = tourData.title;
+
+            const description = document.createElement('p');
+            description.textContent = tourData.description;
+
+            const price = document.createElement('p');
+            price.textContent = tourData.price;
+
+            const bookLink = document.createElement('a');
+            bookLink.href = 'booking.html';
+            bookLink.className = 'book-button';
+            bookLink.textContent = 'Забронировать';
+
+            tourDiv.appendChild(title);
+            tourDiv.appendChild(description);
+            tourDiv.appendChild(price);
+            tourDiv.appendChild(bookLink);
+
+            return tourDiv;
+        }
+        toursData.forEach(tourData => {
+            const tourElement = createTour(tourData);
+            tourList.appendChild(tourElement);
+            tours.push(tourElement);
+        });
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value.toLowerCase();
+            tours.forEach(tour => {
+                const text = tour.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    tour.style.display = 'block';
+                } else {
+                    tour.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
